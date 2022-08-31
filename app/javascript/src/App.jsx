@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
+
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+
 import { initializeLogger } from "common/logger";
 
 const App = () => {
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-      /*eslint no-undef: "off"*/
-      initializeLogger();
-      setAuthHeaders(setLoading);
-      // logger.info("Never use console.log");
-      // logger.error("Never use console.error");
-    }, []);
-  
-    if (loading) {
-      return <h1>Loading...</h1>;
-    }
-    
-    return (
+  useEffect(() => {
+    /*eslint no-undef: "off"*/
+    initializeLogger();
+    setAuthHeaders(setLoading);
+    // logger.info("Never use console.log");
+    // logger.error("Never use console.error");
+  }, []);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
+
+  return (
     <Router>
       <Switch>
         <Route exact path="/" render={() => <div>Home</div>} />
