@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
-import { setAuthHeaders } from "apis/axios";
+import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
 import Dashboard from "components/Dashboard";
 import PageLoader from "components/PageLoader";
@@ -12,11 +13,9 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    /*eslint no-undef: "off"*/
     initializeLogger();
+    registerIntercepts();
     setAuthHeaders(setLoading);
-    // logger.info("Never use console.log");
-    // logger.error("Never use console.error");
   }, []);
 
   if (loading) {
@@ -29,11 +28,10 @@ const App = () => {
 
   return (
     <Router>
+      <ToastContainer />
       <Switch>
-        {/* <Route exact path="/" render={() => <div>Home</div>} /> */}
+        <Route exact component={CreateTask} path="/tasks/create" />
         <Route exact component={Dashboard} path="/dashboard" />
-        <Route exact component={CreateTask} path="/" />
-        <Route exact path="/about" render={() => <div>About</div>} />
       </Switch>
     </Router>
   );
