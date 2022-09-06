@@ -7,8 +7,9 @@ import { registerIntercepts, setAuthHeaders } from "apis/axios";
 import { initializeLogger } from "common/logger";
 import Dashboard from "components/Dashboard";
 import PageLoader from "components/PageLoader";
-import { ShowTask } from "components/Tasks";
-import CreateTask from "components/Tasks/Create";
+// import { ShowTask } from "components/Tasks";
+import { CreateTask, ShowTask, EditTask } from "components/Tasks";
+// import CreateTask from "components/Tasks/Create";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ const App = () => {
     <Router>
       <ToastContainer />
       <Switch>
+        <Route exact component={EditTask} path="/tasks/:slug/edit" />
         <Route exact component={ShowTask} path="/tasks/:slug/show" />
         <Route exact component={CreateTask} path="/tasks/create" />
         <Route exact component={Dashboard} path="/dashboard" />
