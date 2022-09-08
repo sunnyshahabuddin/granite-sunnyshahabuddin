@@ -6,6 +6,7 @@ class Task < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :slug, uniqueness: true
   validate :slug_not_changed
+  has_many :comments, dependent: :destroy
 
   before_create :set_slug
 
