@@ -3,13 +3,8 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  MAX_NAME_LENGTH = 255
   def setup
-    @user = User.new(
-      name: "Sam Smith",
-      email: "sam@example.com",
-      password: "welcome",
-      password_confirmation: "welcome")
+    @user = build(:user)
   end
 
   # embed new test cases here...
@@ -97,9 +92,7 @@ class UserTest < ActiveSupport::TestCase
 
   def test_users_should_have_unique_auth_token
     @user.save!
-    second_user = User.create!(
-      name: "Olive Sans", email: "olive@example.com",
-      password: "welcome", password_confirmation: "welcome")
+    second_user = create(:user)
 
     assert_not_same @user.authentication_token, second_user.authentication_token
   end

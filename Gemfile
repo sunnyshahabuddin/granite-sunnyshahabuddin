@@ -33,7 +33,11 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "rubocop"
   gem "rubocop-rails"
+  # Rails integration for factory_bot, a replacement for fixtures
+  gem "factory_bot_rails"
 
+  # For auto-generating demo data
+  gem "faker"
 end
 
 group :development do
