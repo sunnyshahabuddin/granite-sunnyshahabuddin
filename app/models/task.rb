@@ -10,10 +10,22 @@ class Task < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   enum progress: { pending: "pending", completed: "completed" }
+  enum status: { unstarred: "unstarred", starred: "starred" }
 
   before_create :set_slug
 
   private
+
+    def self.of_status(progress)
+      if progress == :pending
+        starred = pending.starred.order("updated_at DESC")
+        unstarred = pending.unstarred.order("updated_at DESC")
+      else
+        starred = completed.starred.order("updated_at DESC")
+        unstarred = completed.unstarred.order("updated_at DESC")
+      end
+      starred + unstarred
+    end
 
     def set_slug
       title_slug = title.parameterize
