@@ -273,7 +273,7 @@ DEPENDENCIES
   sidekiq-cron
   simplecov
   spring
-  sqlite3 (~> 1.4)
+  sqlite3
   tzinfo-data
   web-console (>= 4.1.0)
   webpacker (~> 5.0)
