@@ -25,6 +25,7 @@
     "@rails/webpacker": "5.4.0",
     "axios": "^0.27.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-plugin-js-logger": "^1.0.17",
     "classnames": "^2.3.1",
     "js-logger": "^1.6.1",
     "prop-types": "^15.8.1",
@@ -41,7 +42,6 @@
   "version": "0.1.0",
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.9",
-    "babel-plugin-js-logger": "^1.0.17",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
