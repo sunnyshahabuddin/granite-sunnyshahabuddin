@@ -73,3 +73,7 @@ gem "simplecov", require: false, group: :test
 group :production do
   gem "pg"
 end
+# PDF generation gem
+gem "wicked_pdf"
+# wicked_pdf uses the following binary
+gem "wkhtmltopdf-binary"

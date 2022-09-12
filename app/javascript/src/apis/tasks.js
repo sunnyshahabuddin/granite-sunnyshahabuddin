@@ -15,10 +15,16 @@ const update = ({ slug, payload, quiet = false }) => {
     task: payload,
   });
 };
+
 const destroy = ({ slug, quiet }) => {
   const path = quiet ? `/tasks/${slug}?quiet` : `/tasks/${slug}`;
   return axios.delete(path);
 };
+
+const generatePdf = () => axios.post("/tasks/report", {});
+
+const download = () =>
+  axios.get("/tasks/report/download", { responseType: "blob" });
 
 const tasksApi = {
   list,
@@ -26,6 +32,8 @@ const tasksApi = {
   create,
   update,
   destroy,
+  generatePdf,
+  download,
 };
 
 export default tasksApi;
